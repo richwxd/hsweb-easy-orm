@@ -25,6 +25,14 @@ public class DateTimeConverter implements ValueConverter {
     @Override
     public Object getData(Object value) {
         if (value instanceof Date) return value;
+        if (value instanceof Number) {
+            // 是20160112格式,而不是时间戳
+            if (((Number) value).longValue() < 29999999) {
+                value = value.toString();
+            } else {
+                return new Date(((Number) value).longValue());
+            }
+        }
         if (value instanceof String) {
             if (((String) value).contains(",")) {
                 return Arrays.stream(((String) value).split(","))
