@@ -6,13 +6,13 @@
     <groupId>org.hswebframework</groupId>
     <artifactId>hsweb-easy-orm</artifactId>
     <packaging>pom</packaging>
-    <version>3.0.2-SNAPSHOT</version>
+    <version>3.0.2</version>
     <modules>
         <module>hsweb-easy-orm-core</module>
         <module>hsweb-easy-orm-rdb</module>
     </modules>
 
-    <name>${artifactId}</name>
+    <name>${project.artifactId}</name>
     <url>http://www.hswebframework.org</url>
     <description>一个简单的orm工具</description>
 
@@ -47,12 +47,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.locales>zh_CN</project.build.locales>
         <project.build.jdk>1.8</project.build.jdk>
-        <junit.version>4.11</junit.version>
-        <slf4j.version>1.7.21</slf4j.version>
-        <log4j.version>1.2.12</log4j.version>
-        <logback.version>1.1.7</logback.version>
-        <fastjson.version>1.2.28</fastjson.version>
-        <hsweb.expands.version>3.0.0</hsweb.expands.version>
+        <junit.version>4.12</junit.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <fastjson.version>1.2.51</fastjson.version>
+        <hsweb.expands.version>3.0.2</hsweb.expands.version>
     </properties>
 
 
@@ -64,7 +63,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.3</version>
+                        <version>1.6.8</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>sonatype-releases</serverId>
@@ -85,7 +84,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -99,7 +98,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <version>3.0.1</version>
                         <configuration>
                             <additionalparam>-Xdoclint:none</additionalparam>
                         </configuration>
@@ -135,7 +134,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-scm-plugin</artifactId>
-                <version>1.8.1</version>
+                <version>1.11.1</version>
                 <configuration>
                     <connectionType>connection</connectionType>
                 </configuration>
@@ -143,7 +142,7 @@
 
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.0.1</version>
                 <configuration>
                     <attach>true</attach>
                 </configuration>
@@ -160,12 +159,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>${project.build.jdk}</source>
                     <target>${project.build.jdk}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
             </plugin>
         </plugins>
     </build>
@@ -181,19 +186,19 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.191</version>
+            <version>1.4.197</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.1.0</version>
+            <artifactId>ojdbc6</artifactId>
+            <version>12.1.0.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
+            <version>8.0.13</version>
             <scope>test</scope>
         </dependency>
 
@@ -224,7 +229,7 @@
             <dependency>
                 <groupId>org.hswebframework</groupId>
                 <artifactId>hsweb-utils</artifactId>
-                <version>3.0.0</version>
+                <version>3.0.2</version>
             </dependency>
 
             <dependency>
@@ -236,12 +241,12 @@
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>transport</artifactId>
-                <version>5.0.0</version>
+                <version>6.5.0</version>
             </dependency>
             <dependency>
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
-                <version>5.0.0</version>
+                <version>6.5.0</version>
             </dependency>
 
             <dependency>
@@ -270,7 +275,7 @@
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>1.9.2</version>
+                <version>1.9.3</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
